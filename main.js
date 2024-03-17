@@ -32,10 +32,23 @@ function convertPhoneWord(phoneWord) {
         'P': '7', 'Q': '7', 'R': '7', 'S': '7',
         'T': '8', 'U': '8', 'V': '8',
         'W': '9', 'X': '9', 'Y': '9', 'Z': '9',
+    };
+
+    let number = '';
+    for (let i = 0; i < phoneWord.length; i++){
+        const char = phoneWord[i].toUpperCase();
+        if (char in letterMap){
+            number += letterMap[char];
+        }else if (!isNaN(parseInt(char))) {
+            number += char;
+        }
     }
   
+    return number;
 
 }
+
+
 
 //    ^
 //    |
